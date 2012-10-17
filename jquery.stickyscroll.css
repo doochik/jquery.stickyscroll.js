@@ -1,0 +1,11 @@
+.jquery-fixedscroll
+{
+  position: fixed;
+  bottom: 0;
+  overflow: auto;
+}
+
+.jquery-fixedscroll__i
+{
+    height: 1px;
+}

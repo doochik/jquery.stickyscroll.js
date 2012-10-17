@@ -1,0 +1,51 @@
+html,
+body
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main
+{
+    width: 500px;
+    height: 100%;
+    overflow: auto;
+    position: relative;
+}
+
+.info
+{
+    font-size: 120%;
+    margin: 10px;
+}
+
+.message
+{
+    border: 1px solid #000;
+    margin: 10px;
+    position: relative;
+}
+
+.message-head
+{
+    background: #CCC;
+}
+
+.message-body-wrapper
+{
+    overflow: auto;
+    width: 100%;
+}
+
+.nowrap
+{
+    white-space: nowrap;
+}
+
+.jquery-fixedscroll
+{
+    margin-left: 11px;
+    background: #F00;
+}
