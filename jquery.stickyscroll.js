@@ -40,7 +40,11 @@
             this._$main.off('.fixedscroll');
             this._$blocks.off('.fixedscroll');
 
-            this._$scroller.off('.fixedscroll').remove();
+            // remove scroller
+            if (this._$scroller) {
+                this._$scroller.off('.fixedscroll').remove();
+                delete this._$scroller;
+            }
         },
 
         /**
@@ -120,20 +124,20 @@
                      */
                     var blockMiddleInViewport = scrollerTop >= blockTop && blockBottom >= scrollerBottom;
 
-                    // общее определение, что письмо находится в видимой области
+                    // check if block in viewport
                     if ((blockTopInViewport || blockMiddleInViewport) && !blockBottomInViewport) {
                         this._setScroller(block);
-
-                    } else {
-                        // видна нижняя граница - сбрасываем кастомный скролл
-                        this._resetScroller(block);
+                        continue;
                     }
                 }
+
+                // block has no scroll or it's not in viewport so reset scroll
+                this._resetScroller(block);
             }
         },
 
         _setScroller: function(associatedBlock) {
-            // if we change associatedBlock or changed width in current block
+            // if we want to change associatedBlock or change width in current block
             if (associatedBlock != this._curBlock || associatedBlock.offsetWidth != this._curBlockWidth) {
                 var $customScroller = this._getCustomScroller();
 
